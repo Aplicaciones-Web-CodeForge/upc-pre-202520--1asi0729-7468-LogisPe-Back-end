@@ -1,0 +1,17 @@
+using Microsoft.AspNetCore.Mvc;
+using LogisPe.Api.Shared;
+
+namespace LogisPe.Api.Stocks;
+
+[ApiController]
+[Route("stocks")]
+public class StocksController : ControllerBase
+{
+    private readonly StocksService _svc;
+    public StocksController(StocksService svc) { _svc = svc; }
+    [HttpGet] public IActionResult List() => Ok(_svc.List());
+    [HttpGet("{id:int}")] public IActionResult Get(int id) => _svc.Get(id) is { } v ? Ok(v) : NotFound(new { message = "stocks not found" });
+    [HttpPost] public IActionResult Create([FromBody] Stock s) => Created(string.Empty, _svc.Create(s));
+    [HttpPut("{id:int}")] public IActionResult Update(int id, [FromBody] Stock s) => _svc.Update(id, s) is { } v ? Ok(v) : NotFound(new { message = "stocks not found" });
+    [HttpDelete("{id:int}")] public IActionResult Delete(int id) => _svc.Remove(id) is { } v ? Ok(v) : NotFound(new { message = "stocks not found" });
+}

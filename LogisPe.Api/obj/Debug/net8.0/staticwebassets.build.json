@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "sqyHhR776lJG1lLb1NAm+iEXbAzj7KGQg2J8ezgK0eQ=",
+  "Source": "LogisPe.Api",
+  "BasePath": "_content/LogisPe.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

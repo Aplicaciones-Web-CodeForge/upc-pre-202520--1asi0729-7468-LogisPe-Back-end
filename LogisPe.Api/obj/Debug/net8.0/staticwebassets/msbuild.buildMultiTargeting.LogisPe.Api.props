@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\LogisPe.Api.props" />
+</Project>
