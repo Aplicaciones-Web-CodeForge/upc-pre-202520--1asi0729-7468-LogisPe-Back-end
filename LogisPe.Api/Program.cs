@@ -15,6 +15,12 @@ builder.Services.AddSingleton<LogisPe.Api.Orders.OrdersService>();
 builder.Services.AddSingleton<LogisPe.Api.Suppliers.SuppliersService>();
 builder.Services.AddSingleton<LogisPe.Api.Stores.StoresService>();
 
+var port = Environment.GetEnvironmentVariable("PORT");
+if (!string.IsNullOrEmpty(port))
+{
+    builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+}
+
 var app = builder.Build();
 app.UseCors();
 app.UseSwagger();
